@@ -8,6 +8,10 @@ function CreateTodo({onAddTask}) {
     //we define a state named newTask, it will hold text in input
     const [newTask, setNewTask] =useState ('');
 
+    const clearInput = () => {
+        setNewTask('')
+    }
+
     //a function to create a new task
     const CreateNewTask = () => {
         //if the input field is empty, do nothing
@@ -19,6 +23,7 @@ function CreateTodo({onAddTask}) {
         }
         //we send this object to the parent component
         onAddTask(request)
+        clearInput();
     }
 
     return (

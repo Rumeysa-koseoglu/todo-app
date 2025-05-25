@@ -12,8 +12,7 @@ function App() {
     //with spread operator we add a new one to the end of the current tasks
     setTodos([...todos, newTodo]);
   };
-
-  console.log(todos);
+console.log(todos);
 
   return (
     <div className="app">
@@ -28,7 +27,7 @@ function App() {
       >
         {/**we call CreateTodo component and send it the AddTask function */}
         <CreateTodo onAddTask={AddTask} />
-        <TodoList />
+        <TodoList todos={todos}/>
       </div>
     </div>
   );
