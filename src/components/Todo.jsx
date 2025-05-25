@@ -2,8 +2,12 @@ import React from 'react'
 import { FaXmark } from "react-icons/fa6";
 import { MdOutlineEdit } from "react-icons/md";
 
-function Todo({todo}) {
+function Todo({todo, onRemoveTask}) {
     const {id, content} = todo;
+
+    const removeTask = () => {
+        onRemoveTask(id);
+    }
     
     return (
         <div style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"space-between", border:"1px solid lightgray", padding:"10px", marginTop:"15px"}}>
@@ -12,7 +16,7 @@ function Todo({todo}) {
             </div>
             <div>
                 <MdOutlineEdit className='todo-list-icons'/>
-                <FaXmark className='todo-list-icons'/>
+                <FaXmark className='todo-list-icons' onClick={removeTask}/>
             </div>
         </div>
     )

@@ -12,6 +12,14 @@ function App() {
     //with spread operator we add a new one to the end of the current tasks
     setTodos([...todos, newTodo]);
   };
+
+  const removeTask = (todoId) => {
+    //filter(), checks each element one by one and adds only those that meet the condition to the new list
+    setTodos([...todos.filter((todo) => todo.id !== todoId)]);
+  }
+
+
+
 console.log(todos);
 
   return (
@@ -27,7 +35,7 @@ console.log(todos);
       >
         {/**we call CreateTodo component and send it the AddTask function */}
         <CreateTodo onAddTask={AddTask} />
-        <TodoList todos={todos}/>
+        <TodoList todos={todos} onRemoveTask = {removeTask} /> {/**we make a props to todo.jsx to apply the removeTask function when the xmark is clicked */}
       </div>
     </div>
   );
