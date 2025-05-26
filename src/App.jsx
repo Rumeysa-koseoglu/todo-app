@@ -8,7 +8,7 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   //we define a function to add a new task
-  const AddTask = (newTodo) => {
+  const addTask = (newTodo) => {
     //with spread operator we add a new one to the end of the current tasks
     setTodos([...todos, newTodo]);
   };
@@ -18,11 +18,23 @@ function App() {
     setTodos([...todos.filter((todo) => todo.id !== todoId)]);
   }
 
+  //function update a task
+  const updateTask = (updatedTodo) => { //we get the new todo with 'updatedTodo' parameter
+    const newTodo = todos.map((todo) => {//map(), checks each task in the array
+      if(todo.id !== updatedTodo.id) { //if the id does not match , leaves it as it is
+        return todo;
+      }
+      return updatedTodo; // if the id matches , it replaces it with the updated version
+    })
+
+    setTodos([...newTodo]);// as a result we write the new task array to the state with setTodos
+  }
+
 
 
 console.log(todos);
 
-  return (
+  return ( //we start to return the interface (UI)
     <div className="app">
       <div
         style={{
@@ -34,8 +46,8 @@ console.log(todos);
         }}
       >
         {/**we call CreateTodo component and send it the AddTask function */}
-        <CreateTodo onAddTask={AddTask} />
-        <TodoList todos={todos} onRemoveTask = {removeTask} /> {/**we make a props to todo.jsx to apply the removeTask function when the xmark is clicked */}
+        <CreateTodo onAddTask={addTask} /> {/**addTask function will be run when we want to add a new task */}
+        <TodoList todos={todos} onRemoveTask = {removeTask} onUpdateTask = {updateTask} /> {/**we send task list(todos), delete function (onRemoveTask), and update function (onUpdateTask) using props */}
       </div>
     </div>
   );
