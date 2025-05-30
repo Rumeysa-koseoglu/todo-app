@@ -1,36 +1,269 @@
-.app {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+* {
+  font-family: "Montserrat";
+}
+
+body {
+  /* margin: 100px; */
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    #0d0d0d 0%,
+    #0d0d0d 20vh,
+    #191919 20vh,
+    #191919 100%
+  );
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.app-container {
+     width: 100vh;
+     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.create-todo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+.logo {
+    margin-top: 40px;
+}
+
+.app {
+  margin: 0 auto;
+  padding: 0;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    position: relative;
+    top: 7vh;
+}
+
+.new-task-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
 }
 
 .todo-input {
-    width: 90%;
-    padding: 10px;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid #796b5e;
-    background-color: transparent;
-    color: #796b5e;
+  height: 30px;
+  width: 90%;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #0d0d0d;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #262626;
+  color: #e5e5e5;
 }
 
-.add-icon {
-    cursor: pointer;
+::placeholder {
+  color: #808080;
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: #808080;
+}
+
+.addBtn {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: #1e6f9f;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.todosInList {
+    height: 65px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 9fr 1fr;
+    border: 1px solid #333333;
+    background-color: #262626;
+    margin-top: 15px;
+    border-radius: 8px;
+    color: #e5e5e5;
+}
+
+.checkbox {
+    color: #4ea8de !important;
+}
+
+.checkbox.Mui-checked {
+    color: #585abd !important;
+}
+
+.edit-input {
+  height: 30px;
+  width: 90%;
+  padding: 10px;
+  outline: none;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #0d0d0d;
+  /* border-bottom: 1px solid #796b5e; */
+  background-color: #262626;
+  color: #e5e5e5;
 }
 
 .todo-list-icons {
-    color:#796b5e;
-    margin-right: 10px;
-    cursor: pointer;
+  color: #808080;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+
+/* mobile responsiveness */
+
+@media (max-width:877px) {
+
+
+.app {
+  width: 700px;
+    top: 6vh;
+}
+
+.todo-input {
+  font-size: 14px;
+}
+
+.todosInList {
+    height: 63px;
+    grid-template-columns: 1fr 8fr 1fr;
+    font-size: 14px;
+}
+
+.edit-input {
+  font-size: 14px;
+}
+
+.todo-list-icons {
+  font-size: 22px;
+}
+
+}
+
+@media (max-width:730px) {
+
+
+.app {
+  width: 600px;
+    top: 6vh;
+}
+
+.todo-input {
+  font-size: 14px;
+}
+
+.todosInList {
+    height: 63px;
+    grid-template-columns: 1fr 8fr 1fr;
+    font-size: 14px;
+}
+
+.edit-input {
+  font-size: 14px;
+}
+
+.todo-list-icons {
+  font-size: 19px;
+}
+
+}
+
+@media (max-width:630px) {
+
+
+.app {
+  width: 500px;
+    top: 6vh;
+}
+
+.todo-input {
+  font-size: 14px;
+  height: 25px;
+}
+.addBtn {
+    height: 45px;
+}
+
+.todosInList {
+    height: 55px;
+    grid-template-columns: 1fr 7fr 1fr;
+    font-size: 14px;
+}
+
+.checkbox {
+    transform: scale(0.8);
+}
+
+.edit-input {
+  font-size: 14px;
+  width: 70% !important;
+}
+
+.todo-list-icons {
+  font-size: 17px;
+}
+
+}
+
+@media (max-width:520px) {
+
+
+.app {
+  width: 400px;
+}
+
+.todosInList {
+    grid-template-columns: 1fr 7fr 1.5fr;
+}
+
+}
+
+@media (max-width:420px) {
+
+
+.app {
+  width: 300px;
+}
+
+.new-task-section {
+  flex-direction: column;
+}
+
+.todo-input {
+  font-size: 14px;
+  height: 20px;
+}
+
+.addBtn {
+    height: 40px;
+    width: 95%;
+}
+
+.todosInList {
+    grid-template-columns: 1fr 7fr 2fr;
+}
+
+.edit-input {
+    padding: 5px;
+}
+
 }

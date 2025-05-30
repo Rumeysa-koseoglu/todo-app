@@ -9,8 +9,12 @@ function App() {
 
   //we define a function to add a new task
   const addTask = (newTodo) => {
+    const safeTodo = {
+      ...newTodo,
+      isCompleted: newTodo.isCompleted ?? false,
+    }
     //with spread operator we add a new one to the end of the current tasks
-    setTodos([...todos, newTodo]);
+    setTodos([...todos, safeTodo]);
   };
 
   const removeTask = (todoId) => {
@@ -20,6 +24,7 @@ function App() {
 
   //function update a task
   const updateTask = (updatedTodo) => { //we get the new todo with 'updatedTodo' parameter
+    console.log("updated: ", updatedTodo);
     const newTodo = todos.map((todo) => {//map(), checks each task in the array
       if(todo.id !== updatedTodo.id) { //if the id does not match , leaves it as it is
         return todo;
@@ -30,25 +35,26 @@ function App() {
     setTodos([...newTodo]);// as a result we write the new task array to the state with setTodos
   }
 
+  const toggleComplete = (id) => {
+    const updateTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+    );
+    setTodos(updateTodos);
+  };
 
 
 console.log(todos);
 
   return ( //we start to return the interface (UI)
+
+    <div className="app-container">
+      <img src="/src/images/Logo.png" className="logo" />
     <div className="app">
-      <div
-        style={{
-          width: "500px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
         {/**we call CreateTodo component and send it the AddTask function */}
         <CreateTodo onAddTask={addTask} /> {/**addTask function will be run when we want to add a new task */}
-        <TodoList todos={todos} onRemoveTask = {removeTask} onUpdateTask = {updateTask} /> {/**we send task list(todos), delete function (onRemoveTask), and update function (onUpdateTask) using props */}
-      </div>
+        <TodoList todos={todos} onRemoveTask = {removeTask} onUpdateTask = {updateTask} onToggleComplete={toggleComplete}/> {/**we send task list(todos), delete function (onRemoveTask), and update function (onUpdateTask) using props */}
+    
+    </div>
     </div>
   );
 }

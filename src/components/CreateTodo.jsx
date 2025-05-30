@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../App.css'
-import { IoIosAddCircle } from "react-icons/io";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 //we get onAddTask function from props object
 function CreateTodo({onAddTask}) {
@@ -28,12 +28,12 @@ function CreateTodo({onAddTask}) {
 
     return (
         
-            <div className='create-todo'>
+            <div className='new-task-section'>
                 {/** the field where the user enters a task */}
                 <input value={newTask} //input value depends on state
                 onChange={(e) => setNewTask(e.target.value)} //when input changes, state is updated
                  className='todo-input' type="text" placeholder='enter a task' />
-                <IoIosAddCircle size='50px' color='#796b5e' onClick={CreateNewTask} />
+                <button className='addBtn' onClick={CreateNewTask} >Add<IoIosAddCircleOutline size='20px' color='white'/></button>
             </div>
     
     )
