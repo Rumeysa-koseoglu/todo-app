@@ -1,12 +1,47 @@
-# React + Vite
+# Todo App
+ This is a simple Todo App built with React and using Material UI. Users can add tasks what they want to do and don't want to forget. They can also mark the finished task, edit and delete. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ ![App Screenshot](./src/images/todo-app-screenshot.png)
 
-Currently, two official plugins are available:
+ ## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ - Google Fonts integration
+ - Mobile responsive design with CSS and media queries
+ - Organised layout and accessible UI elements
+ - Ease of adding, editing and deleting tasks
 
-## Expanding the ESLint configuration
+ ## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+ - React
+ - Vite
+ - Material UI
+ - Google Fonts
+ - CSS (with media queries)
+
+ ## Installation 
+ To run this project locally;
+
+ bash
+ 1. Clone the repository:
+ git clone https://github.com/Rumeysa-koseoglu/todo-app
+
+ 2. Move into the project directory:
+ cd todo-app
+
+ 3. Install dependencies:
+ npm install
+
+ 4. Start the development server:
+ npm run dev
+
+ Then visit http://localhost:5174 in your browser 
+ 
+
+ ## What I Learned 
+ -- With this project I learned;
+
+ - Structuring a React project and managing props
+ - Writing conventional Git commit messages
+ - Applying responsive design
+ - Using Material UI components like Checkbox
+ - Styling with CSS
