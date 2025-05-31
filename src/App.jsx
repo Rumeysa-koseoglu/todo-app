@@ -48,7 +48,7 @@ console.log(todos);
   return ( //we start to return the interface (UI)
 
     <div className="app-container">
-      <img src="/src/images/Logo.png" className="logo" />
+      <img src="/Logo.png" className="logo" />
     <div className="app">
         {/**we call CreateTodo component and send it the AddTask function */}
         <CreateTodo onAddTask={addTask} /> {/**addTask function will be run when we want to add a new task */}
